@@ -1,17 +1,22 @@
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
-import { Footer } from "./components/Footer";
-import { Hero } from "./components/Hero";
-import { NavBar } from "./components/NavBar";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { Home } from "./pages/Home";
+import { About } from "./pages/About";
+import { Dashboard } from "./components/Dashboard";
+import { Login } from "./pages/Login";
 
 function App() {
-	return (
-		<div className="h-screen w-full bg-neutral-950">
-			<NavBar />
-			<Hero />
-			<Footer />
-		</div>
-	);
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" Component={Home} />
+        <Route path="/about" Component={About} />
+        <Route path="/dashboard" Component={Dashboard} />
+        <Route path="/login" Component={Login} />
+      </Routes>
+    </BrowserRouter>
+  );
 }
 
 export default App;
