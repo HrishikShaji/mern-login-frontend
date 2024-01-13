@@ -3,12 +3,14 @@ import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Home } from "./pages/Home";
 import { About } from "./pages/About";
-import { Dashboard } from "./components/Dashboard";
+import { Dashboard } from "./pages/Dashboard";
 import { Login } from "./pages/Login";
+import { NavBar } from "./components/NavBar";
 
 function App() {
   return (
     <BrowserRouter>
+      <NavBar />
       <Routes>
         <Route path="/" Component={Home} />
         <Route path="/about" Component={About} />
