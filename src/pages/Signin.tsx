@@ -8,7 +8,7 @@ type InputValue = {
   password: string;
 };
 
-export const Login = () => {
+export const Signin = () => {
   const [inputValue, setInputValue] = useState<InputValue>({
     username: "",
     password: "",
@@ -17,7 +17,7 @@ export const Login = () => {
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     console.log(inputValue);
-    await fetch("http://localhost:5000/login", {
+    await fetch("http://localhost:5000/signin", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(inputValue),
@@ -35,7 +35,7 @@ export const Login = () => {
         flexDirection: "column",
       }}
     >
-      <h1>Login</h1>
+      <h1>Sign In</h1>
       <Form style={{ width: "50%", height: "50%" }} onSubmit={handleSubmit}>
         <Form.Group
           className="mb-3"
@@ -89,8 +89,8 @@ export const Login = () => {
           />
         </Form.Group>
         <div style={{ display: "flex", gap: "10px" }}>
-          <h1>New User?</h1>
-          <Link to="/signin">SignIn</Link>
+          <h1>Already have an Account?</h1>
+          <Link to="/login">Log In</Link>
         </div>
         <Button variant="primary" type="submit">
           Submit

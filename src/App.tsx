@@ -6,6 +6,7 @@ import { About } from "./pages/About";
 import { Dashboard } from "./pages/Dashboard";
 import { Login } from "./pages/Login";
 import { NavBar } from "./components/NavBar";
+import { Signin } from "./pages/Signin";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path="/about" Component={About} />
         <Route path="/dashboard" Component={Dashboard} />
         <Route path="/login" Component={Login} />
+        <Route path="/signin" Component={Signin} />
       </Routes>
     </BrowserRouter>
   );
