@@ -14,7 +14,7 @@ export const Home = () => {
 		const cookie = getCookie("token");
 		async function verifyAuth() {
 			const { data } = await axios.post(
-				`${serverUrl}verify`,
+				`${serverUrl}/verify`,
 				{},
 				{
 					headers: {

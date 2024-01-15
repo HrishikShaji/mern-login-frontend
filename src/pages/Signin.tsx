@@ -23,7 +23,7 @@ export const Signin = () => {
 		try {
 			setIsLoading(true);
 			const response = await axios.post(
-				`${serverUrl}signin`,
+				`${serverUrl}/signin`,
 				{
 					...inputValue,
 				},
