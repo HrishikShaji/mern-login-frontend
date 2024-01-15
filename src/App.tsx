@@ -9,18 +9,18 @@ import { NavBar } from "./components/NavBar";
 import { Signin } from "./pages/Signin";
 
 function App() {
-  return (
-    <BrowserRouter>
-      <NavBar />
-      <Routes>
-        <Route path="/" Component={Home} />
-        <Route path="/about" Component={About} />
-        <Route path="/dashboard" Component={Dashboard} />
-        <Route path="/login" Component={Login} />
-        <Route path="/signin" Component={Signin} />
-      </Routes>
-    </BrowserRouter>
-  );
+	return (
+		<BrowserRouter>
+			<NavBar />
+			<Routes>
+				<Route path="/" Component={Home} />
+				<Route path="/about" Component={About} />
+				<Route path="/dashboard" Component={Dashboard} />
+				<Route path="/login" Component={Login} />
+				<Route path="/signin" Component={Signin} />
+			</Routes>
+		</BrowserRouter>
+	);
 }
 
 export default App;

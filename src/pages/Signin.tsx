@@ -1,7 +1,9 @@
+import axios from "axios";
 import { FormEvent, useState } from "react";
 import { Container, Form } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
+import { serverUrl } from "../lib/utils";
 
 type InputValue = {
   username: string;
@@ -9,6 +11,7 @@ type InputValue = {
 };
 
 export const Signin = () => {
+  const [isLoading, setIsLoading] = useState(false);
   const [inputValue, setInputValue] = useState<InputValue>({
     username: "",
     password: "",
@@ -17,11 +20,21 @@ export const Signin = () => {
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     console.log(inputValue);
-    await fetch("http://localhost:5000/signin", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(inputValue),
-    });
+    try {
+      setIsLoading(true);
+      const response = await axios.post(
+        `${serverUrl}/signin`,
+        {
+          ...inputValue,
+        },
+        { withCredentials: true },
+      );
+      console.log(response);
+    } catch (error) {
+      console.error(error);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -93,7 +106,7 @@ export const Signin = () => {
           <Link to="/login">Log In</Link>
         </div>
         <Button variant="primary" type="submit">
-          Submit
+          {isLoading ? "Loading..." : "Sign In"}
         </Button>
       </Form>
     </Container>
